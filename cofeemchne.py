@@ -32,7 +32,7 @@ resources = {
 
 
 
-rho=True
+start_machine=True
 machine_money=0
 
 def dollar_count():
@@ -52,7 +52,7 @@ def check_resources(choosen):
     drink=MENU[choosen]["ingredients"]
     for item in drink:
         if drink[item]>=resources[item]:  
-            print("no sufficient resouces in machine,please give us some time") 
+            print("no sufficient resouces in machine,please give us some time 😟") 
             return False
     return True
 
@@ -75,13 +75,13 @@ def checking_money(dollars,coffee_cost) :
         return True
 # start programṇ
       
-while rho:
+while start_machine:
     
     input_option=input("What would you like to have \(\('cappuccino'\)\/, \('latte'\)\/, \('espresso'\)\/\) : ")
     
     if input_option=="off":
         print("machine is switching off")
-        rho=False
+        start_machine=False
         
     elif input_option=="report":   
         print(f"{resources},Machine_Money={machine_money}") 
@@ -97,9 +97,9 @@ while rho:
                     machine_money += coffee_cost
                     change=dollars-coffee_cost
                     print(f"here is your change amount : {change:.2f}")
-                    print(f"Enjoy your {input_option}")
+                    print(f"Enjoy your {input_option} ☕")
             else:
-                rho=False    
+                start_machine=False    
                 
             
        
