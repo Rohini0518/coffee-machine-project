@@ -36,6 +36,7 @@ start_machine=True
 machine_money=0
 
 def dollar_count():
+    """this function will takes money from user and calculates total money and return that amount"""
     print("Please insert coins")
     dollar_value=int(input("How many quaters?: "))*25
     dollar_value+=int(input("How many dimes?: "))*10
@@ -49,6 +50,7 @@ def dollar_count():
 
 
 def check_resources(choosen): 
+    """this function checks whether the resources in the machine will be sufficient to make a user needed coffee or not"""
     drink=MENU[choosen]["ingredients"]
     for item in drink:
         if drink[item]>=resources[item]:  
@@ -57,22 +59,12 @@ def check_resources(choosen):
     return True
 
 def changing_main_resources(input_option): 
+    """after preparing the coffee , this function will help us to reduce the rescources according to coffee resources"""
     input_drink=MENU[input_option]["ingredients"]
     for value in input_drink:
         resources[value]-=input_drink[value]
     return resources    
       
-def checking_money(dollars,coffee_cost) :
-    if dollars<coffee_cost:
-        print(f"please add sufficient money, here is your refund amount{dollars}")
-        return False
-    else:    
-        global machine_money
-        machine_money += coffee_cost
-        change=dollars-coffee_cost
-        print(f"here is your change amount : {change:.2f}")
-        print(f"Enjoy your {input_option}")
-        return True
 # start programṇ
       
 while start_machine:
